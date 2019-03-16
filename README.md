@@ -1,36 +1,18 @@
-# Docker Flask Celery Redis
+# Draw connect application
 
-A basic [Docker Compose](https://docs.docker.com/compose/) template for orchestrating a [Flask](http://flask.pocoo.org/) application & a [Celery](http://www.celeryproject.org/) queue with [Redis](https://redis.io/)
+This repository contains the docker-flask-celery-redis pipeline used in the Draw Connect application.
 
-### Installation
+The Draw Connect application is an implementation of a **passwordless** two-factors authentification (2FA) using the OpenID Connect convention.
 
-```bash
-git clone https://github.com/mattkohl/docker-flask-celery-redis
-```
+It features:
+  - An online signature verification deep learning model
+  - An online signature verification using a mathematical processing of the online signatures
+  - A fully scalable micro-service-oriented architecture using Docker
+  - An Android mobile application for registration and authentification
 
-### Build & Launch
+The full project is available here > https://github.com/Furl0w/project-demo-dockercompose
 
-```bash
-docker-compose up -d --build
-```
+DEMO: https://vimeo.com/324589014
 
-This will expose the Flask application's endpoints on port `5001` as well as a [Flower](https://github.com/mher/flower) server for monitoring workers on port `5555`
-
-To add more workers:
-```bash
-docker-compose up -d --scale worker=5 --no-recreate
-```
-
-To shut down:
-
-```bash
-docker-compose down
-```
-
-To change the endpoints, update the code in [api/app.py](api/app.py)
-
-Task changes should happen in [queue/tasks.py](celery-queue/tasks.py) 
-
----
-
-adapted from [https://github.com/itsrifat/flask-celery-docker-scale](https://github.com/itsrifat/flask-celery-docker-scale)
+A full presentation of the architecture of the application is available here (in French):
+https://docs.google.com/presentation/d/1GzWkUWF6zP6O_7-w712n_CjAQRkWZpn0r_K10MlCfWk/edit?usp=sharing
